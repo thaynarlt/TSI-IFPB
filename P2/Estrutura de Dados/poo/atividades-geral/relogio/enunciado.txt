@@ -1,0 +1,16 @@
+1. Escrever uma classe chamada Relogio com as seguintes operações:
+	a. Receber no construtor/inicializador o valor de horas, minutos e segundos.
+	b. Imprimir hora atual com minutos e segundos.
+		1. utilizar um método auxiliar que retorna a representação em string da hora atual.
+	c. alterar hora.
+	d. alterar minutos.
+	e. alterar segundos.
+	f. acrescentar X horas a hora atual.
+	g. acrescentar X minutos a hora atual.
+	h. acrescentar X segundos a hora atual.
+2. Escrever o código de forma modularizada separando o código main em outro arquivo.
+3. Escrever uma classe chamada TestRelogio que verifica se a classe Relógio está funcionando de forma adequada.
+4. Reescrever a classe relógio utilizando apenas uma propriedade do tipo inteiro.
+	
+
+
