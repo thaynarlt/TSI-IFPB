@@ -1,37 +1,37 @@
 #Lista 08 // Questão 2
 class Paciente:
-    def __init__(self, nome, cpf, plano_saude):
+    def __init__(self, nome, cpf, plano_saude): #contrutor __init__ recebe dados dos pacientes como parâmetros
         self.nome = nome
         self.cpf = cpf
         self.plano_saude = plano_saude
 
 
-class Fila:
-    def __init__(self):
+class Fila: #Fila da Clínica Médica
+    def __init__(self): #Construtor inicia a fila vazia
         self.pacientes = []
 
-    def incluir(self, paciente):
-        self.pacientes.append(paciente)
-        return len(self.pacientes)
+    def incluir(self, paciente): #Serve para adicionar paciente a fila
+        self.pacientes.append(paciente) #Paciente adicionado
+        return len(self.pacientes) #Tamanho da fila é retornado
 
-    def realizar_chamada(self):
-        if len(self.pacientes) == 0:
+    def realizar_chamada(self): #Chama o próximo paciente da fila
+        if len(self.pacientes) == 0: #--Se a fila estover vazia retorna None
             return None
 
-        paciente = self.pacientes.pop(0)
+        paciente = self.pacientes.pop(0) #Paciente do início da fila é removido e retornado 
         return paciente
 
-    def consultar_posicao(self, cpf):
+    def consultar_posicao(self, cpf): #Retorna a posição atual de um paciente
         for i, paciente in enumerate(self.pacientes):
-            if paciente.cpf == cpf:
-                return i + 1
+            if paciente.cpf == cpf: #Se o paciente for encontrado por seu cpf
+                return i + 1 #Sua posição na fila é retornada
         return None
 
-    def listar_quantidade_atendidos(self):
-        return len(self.pacientes)
+    def listar_quantidade_atendidos(self): #Quantidade de pacientes atendidos
+        return len(self.pacientes) #Quantidade de pacientes na fila
 
 
-def menu():
+def menu(): #Menu do programa
     print("Clinica Medica - Atendimento")
     print("=============")
     print("1. Incluir paciente")
@@ -44,11 +44,11 @@ def menu():
     return escolha
 
 
-def main():
+def main(): #Ponto de entrada do programa
     clinica = Fila()
     while True:
         escolha = menu()
-
+        #Escolhas do menu
         if escolha == "1":
             nome = input("Nome: ")
             cpf = input("CPF: ")
