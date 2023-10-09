@@ -17,3 +17,18 @@ class FilaEncadeada:
     
     def estaVazia(self) -> bool:
         return self.tamanho() == 0
+    
+    def enfileirar(self, valor) -> None:
+        ...
+
+    def desenfileirar(self):
+        ...
+
+    def busca(self,valor) -> bool:
+        ...
+    
+    def __contains__(self,valor):
+        ...
+
+    def __str__(self):
+        ...
