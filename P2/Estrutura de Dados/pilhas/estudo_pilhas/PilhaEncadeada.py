@@ -7,18 +7,18 @@ class Node:
         self.proximo: 'Node' | None = proximo
 
 
-class PilhaEncadeada:
+class PilhaEncadeada: #Não se usa LISTA
     def __init__(self):
         self.__tamanho: int = 0
         self.__topo: Node | None = None
 
-    def estaVazia(self):
+    def estaVazia(self): #verifica se a pilha está vazia
         return self.__topo is None
     
-    def tamanho(self):
+    def tamanho(self): #retorna o tamanho da pilha
         return self.__tamanho
 
-    def empilhar(self, elemento):
+    def empilhar(self, elemento): #adiciona um elemento no topo da pilha
         self.__topo = Node(elemento, proximo=self.__topo)
         # if self.esta_vazia():
         #     self.__topo = Node(elemento)
@@ -28,7 +28,7 @@ class PilhaEncadeada:
         #     self.__topo = novo_no
         self.__tamanho += 1        
 
-    def desempilhar(self):
+    def desempilhar(self): #remove o elemento do topo da pilha
         if self.estaVazia():
             raise PilhaException()
         
@@ -37,7 +37,7 @@ class PilhaEncadeada:
         self.__tamanho -= 1
         return valor   
            
-    def imprimir(self):
+    def imprimir(self): #imprime os elementos da pilha
         no: Node = self.__topo
         print("[", end="")
         while no:
@@ -47,7 +47,8 @@ class PilhaEncadeada:
 
     def __str__(self):
         ...
-        
+
+    #retorna o valor do subtopo da pilha:   
     def subTopo(self): #método de instância da classe "PilhaEncadeada"
             if self.__tamanho < 2: #verificar se a pilha contém pelo menos dois elementos
                 raise PilhaException("A pilha não tem subtopo.") # tamanho da pilha é armazenado na variável

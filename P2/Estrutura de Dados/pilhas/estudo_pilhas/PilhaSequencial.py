@@ -3,7 +3,7 @@ class PilhaException(Exception):
         super().__init__(mensagem)
 
 
-class PilhaSequencial:
+class PilhaSequencial: #Utiliza uma LISTA
     def __init__(self):
         self.__dados = [] #iniciando a pilha
     
@@ -44,7 +44,7 @@ if __name__ == "__main__":
         p.remover()
     except PilhaException as pe:
         print(pe)
-        
+
     print(p)
 
     
