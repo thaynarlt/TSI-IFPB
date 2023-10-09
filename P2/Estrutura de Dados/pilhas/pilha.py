@@ -157,3 +157,4 @@ class PilhaEncadeada:
             # Se houver pelo menos dois elementos na pilha, retorne o valor do subtopo
             sub_topo = self.__topo.proximo.valor #obter o valor do subtopo da pilha, "self.__topo.proximo.valor" obtém o valor do subtopo.
             return sub_topo #retorna o valor do subtopo como resultado da função subTopo.
+    

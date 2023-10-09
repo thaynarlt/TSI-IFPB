@@ -27,7 +27,7 @@ class PilhaSequencialArray:
         #o índice self.__topo é incrementado para indicar que um novo elemento foi adicionado à pilha
 
     def desempilhar(self): #remover o elemento no topo da pilha
-        if self.esta_vazia(): #se a pilha estiver vazia, raise o erro PilhaException
+        if self.estaVazia(): #se a pilha estiver vazia, raise o erro PilhaException
             raise PilhaException()
 
         # Remove o elemento no topo da pilha:
@@ -46,6 +46,18 @@ class PilhaSequencialArray:
         self.__topo -= 1 #Decrementa o índice self.__topo
         #para indicar que um elemento foi removido da pilha
         return valor
+    
+    def imprimir(self):
+        print(self.__dados[0:self.__topo])
+        #obtém os elementos da pilha: slice [0:self.__topo]
+        #começando na posição 0 e terminando na posição self.__topo - 1
+        #O segundo passo é imprimir os elementos da pilha
+        #print() para imprimir a lista de elementos da pilha.
+
+
+    def __str__(self):
+        print(self.__str__())
+        #return 'Pilha()'
 
 
 
@@ -57,7 +69,16 @@ if __name__ == "__main__":
     p.empilhar(1)
     p.empilhar(2)
     p.empilhar(3)
-    print(p)
+
+    p.imprimir()
+
     p.empilhar(4)
+    p.empilhar(5)
+
+    p.imprimir()
+
+    p.desempilhar()
+    p.imprimir()
+
 
 
