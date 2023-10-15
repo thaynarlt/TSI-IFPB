@@ -50,7 +50,7 @@ class ListaSequencialArray:
         
         index = self._obtem_indice(index) #obtem o indice
         if index >= len(self):#verificando se a posição é valida
-            self._container[len(self)] = valor
+            self._container[len(self)] = valor #o tamanho da lista vai receber o valor
         else:
             self._deslocar_a_direita(index)
             self[index]=valor
