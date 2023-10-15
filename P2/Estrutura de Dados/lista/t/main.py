@@ -1,0 +1,15 @@
+from lista import ListaEncadeada
+
+l = ListaEncadeada()
+l.inserir(100, "a")
+print(l)
+l.inserir(1000, "z")
+print(l)
+l.inserir(1, "b")
+print(l)
+l.inserir(80, "zz")
+print(l)
+l.inserir(3, "tres")
+print(l)
+l.inserir(0, "bug")
+print(l)
