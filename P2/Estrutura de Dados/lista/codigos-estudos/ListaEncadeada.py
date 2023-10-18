@@ -1,3 +1,6 @@
+from random import randint
+
+
 class PosicaoInvalida(Exception):
     pass
 
@@ -126,18 +129,28 @@ class ListaEncadeada:
         result.append("]")
         return "".join(result)
 
-    def concatenar(self):
-        ...
+    def concatenar(self, segunda_lista):
+        for x in range(len(segunda_lista)):
+            self.inserir_fim(segunda_lista[x])
 
-    def clonar(self):
-        ...
+    def clonar(self) -> 'ListaEncadeada':
+        nova_lista = ListaEncadeada()
+        for x in range(len(self)):
+            nova_lista.inserir_fim(self[x])
+        return nova_lista
 
-    def checar_duplicidade(self):
-        ...
+    def checar_duplicidade(self) -> bool:
+        for i in range(len(self)):
+            for j in range(i+1, len(self)):
+                if self[i] == self[j]:
+                    return True
+        return False
 
     def esvaziar(self):
-        ...
+        self._inicio = None
+        self._fim = None
+        self._tamanho = 0
 
     def povoar(self):
-        ...
-
+        for x in range(self._capacidade):
+            self.inserir(x, randint(0, 10000))
