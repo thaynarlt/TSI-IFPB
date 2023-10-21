@@ -46,7 +46,7 @@ class PilhaEncadeada: #Não se usa LISTA
         print("]")
 
     def __str__(self):
-        ...
+       return 'Pilha()'
 
     #retorna o valor do subtopo da pilha:   
     def subTopo(self): #método de instância da classe "PilhaEncadeada"
@@ -58,4 +58,39 @@ class PilhaEncadeada: #Não se usa LISTA
             # Se houver pelo menos dois elementos na pilha, retorne o valor do subtopo
             sub_topo = self.__topo.proximo.valor #obter o valor do subtopo da pilha, "self.__topo.proximo.valor" obtém o valor do subtopo.
             return sub_topo #retorna o valor do subtopo como resultado da função subTopo.
-    
+    def desempilhar_n(self, n):
+            if n < 0 or n > self.tamanho:
+                return False
+            
+            for x in range(n):
+                self.desempilhar()
+            return True
+        
+    def esvaziar(self):
+            self.__topo = None
+            self.__tamanho -= 1
+
+    def obtem_base(self):
+            no = self.__topo
+            while no != None:
+                if no.proximo == None:
+                    return no.valor
+                no = no.proximo
+
+    def inverter(self):
+            pilha = PilhaEncadeada()
+            while not self.esta_vazia():
+                pilha.empilhar(self.desempilhar())
+            
+            self.__topo = pilha.__topo
+
+    def concatenar(self, outra_pilha) -> 'PilhaEncadeada':
+            pilha = PilhaEncadeada()
+            while not self.esta_vazia():
+                pilha.empilhar(self.desempilhar())
+
+            while not outra_pilha.esta_vazia():
+                pilha.empilhar(outra_pilha.desempilhar())
+            
+            pilha.inverter()
+            return pilha
