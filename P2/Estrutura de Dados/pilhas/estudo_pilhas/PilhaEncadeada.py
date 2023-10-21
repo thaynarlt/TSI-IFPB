@@ -79,7 +79,7 @@ class PilhaEncadeada: #Não se usa LISTA
 
     def inverter(self):
             pilha = PilhaEncadeada()
-            while not self.esta_vazia():
+            while not self.estaVazia():
                 pilha.empilhar(self.desempilhar())
             
             self.__topo = pilha.__topo
@@ -94,3 +94,26 @@ class PilhaEncadeada: #Não se usa LISTA
             
             pilha.inverter()
             return pilha
+
+    def __getitem__(self, index):
+        index = self._obtem_indice(index)
+        if not 0 <= index < self.__tamanho:  # Alterar _tamanho para __tamanho
+            raise PilhaException("Índice fora dos limites.")
+        no = self._encontrar_elemento(index)
+        return no.valor
+
+    def _obtem_indice(self, index):
+        if index < 0:
+            index = self.__tamanho + index
+        return index
+
+    def _encontrar_elemento(self, index):
+        if not 0 <= index < self.__tamanho:
+            raise PilhaException("Índice fora dos limites.")
+        no = self.__topo
+        for _ in range(index):
+            if no.proximo is not None:
+                no = no.proximo
+            else:
+                raise PilhaException("Índice fora dos limites.")
+        return no
