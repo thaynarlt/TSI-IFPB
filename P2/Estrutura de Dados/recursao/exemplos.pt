@@ -1,0 +1,6 @@
+
+
+
+
+assert soma_lista([1, 2, 3]) == 6
+assert soma_lista([1, 2]) == 3
