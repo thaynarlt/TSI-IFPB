@@ -2,10 +2,13 @@ from abb import Arvore
 
 arvore = Arvore()
 arvore.add(100)
-arvore.add(110)
-arvore.add(90)
-arvore.add(30)
-arvore.add(200)
-arvore.add(1)
-arvore.add(1000)
-arvore.percorrer()
+arvore.remover(100)
+assert arvore.raiz is None
+arvore.add(100)
+arvore.add(95)
+arvore.add(70)
+arvore.add(97)
+arvore.add(96)
+arvore.remover(95)
+assert arvore.raiz.filho_esquerda.valor == 70
+assert arvore.raiz.filho_esquerda.filho_direita.valor == 97

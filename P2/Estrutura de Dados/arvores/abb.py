@@ -32,6 +32,10 @@ class Node:
     @property
     def tem_filho_esquerda(self) -> bool:
         return self.filho_esquerda is not None
+    
+    @property
+    def eh_folha(self) -> bool:
+        return self.filho_direita is None and self.filho_esquerda is None
 
     
 
@@ -64,6 +68,10 @@ class Arvore:
             else:
                 no.filho_esquerda = self._add(no.filho_esquerda, valor)
             return no
+        
+    def percorrer_esquerdo(self):
+        if self.raiz:
+            self._percorrer_em_ordem(self.raiz.filho_esquerda)
 
     def percorrer(self):
         self._percorrer_em_ordem(self.raiz)
@@ -112,4 +120,57 @@ class Arvore:
         return 1 +\
               self._get_total_nos(no.filho_esquerda) +\
                   self._get_total_nos(no.filho_direita)
+    
+    def no_menor_valor(self, node: Node):
+        atual = node
+        while atual.tem_filho_esquerda:
+            atual = atual.filho_esquerda
+        return atual
+    
+    def no_maior_valor(self, node: Node):
+        atual = node
+        while atual.tem_filho_direita:
+            atual = atual.filho_direita
+        return atual
+    
+    def remover(self, valor):
+        self.raiz = self._remover(self.raiz, valor)
+    
+    def _remover(self, node: Node, valor: int):
+        if node is None:
+            return node
         
+        if valor < node.valor:
+            node.filho_esquerda = self._remover(node.filho_esquerda, valor)
+        elif valor > node.valor:
+            node.filho_direita = self._remover(node.filho_direta, valor)
+        else:
+            if not node.tem_filho_esquerda:
+                return node.filho_direita
+            elif not node.tem_filho_direita:
+                return node.filho_esquerda
+            else:
+                substituto = self.no_maior_valor(node.filho_esquerda)
+                node.valor = substituto.valor
+                node.filho_esquerda = self._remover(
+                    node.filho_esquerda,
+                    substituto.valor
+                )
+        return node
+    
+    def busca(self, valor) -> bool:
+        return self._busca(self.raiz, valor)
+
+    def _busca(self, no: Node, valor, nivel=0) -> bool:
+        if no is None:
+            return (False, nivel)
+        elif valor == no.valor:
+            return (True, nivel)
+        elif valor > no.valor:
+            return self._busca(no.filho_direita, valor, nivel+1)
+        else:
+            return self._busca(no.filho_esquerda, valor, nivel+1)
+
+    
+
+    
