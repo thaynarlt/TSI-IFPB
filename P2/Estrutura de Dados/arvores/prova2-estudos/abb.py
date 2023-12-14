@@ -61,6 +61,12 @@ class abb:
     def remover(self, valor):
         self.raiz = self._remover(self.raiz, valor)
         
+    def no_maior_valor(self, node: Node):
+        atual = node
+        while atual.tem_filho_direita:
+            atual = atual.filho_direita
+        return atual
+        
     def _remover(self, node: Node, valor: int):
         if node is None:
             return node
