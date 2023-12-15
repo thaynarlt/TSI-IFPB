@@ -32,3 +32,9 @@ def insertion_sort(array: list):
 # a = [randint(0, 100000) for x in range(10000)]
 
 print(insertion_sort([100, 90, 4, 20, 5]))
+
+print(buble_sort([25, 90, 98, 707, 3]))
+
+arr = [64, 34, 25, 12, 22, 11, 90]
+selectionSort(arr)
+print("Selection Sort:", arr)
