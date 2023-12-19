@@ -64,7 +64,7 @@ WHERE via='M';
 #13. Obter a média de salário dos vendedores (funções 10 e 11) que não sejam casados.
 SELECT AVG(salario)
 FROM Funcionario
-WHERE idfuncao in (10,11) AND estcivil <> 'C';
+WHERE idfuncao IN (10,11) AND estcivil <> 'C';
 
 #14. Obter a data de nascimento da funcionária mais velha.
 SELECT MIN(datanasc)
@@ -82,7 +82,7 @@ FROM Funcionario
 GROUP BY sexo, idnatural; 
 
 #17. Exibir o total de salários de cada setor da empresa que tenha este total > R$ 5.000,00.
-SELECT idsetor, SUM(salaroio) as 'Total'
+SELECT idsetor, SUM(salario) as 'Total'
 FROM Funcionario
 GROUP BY idsetor
 HAVING SUM(salario) > 5000;
