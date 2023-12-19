@@ -167,3 +167,28 @@ GROUP BY YEAR(datapedid), idcliente
 HAVING COUNT(*) > 5;
 
 #Estudo Exercícios SQL - DQL Parte 3 "Junção de Tabelas"
+
+#19. Obter todos os funcionários, mostrando código, nome, código da função, nome da função e gratificação da função.
+SELECT F1.idfuncionario AS 'Código do Funcionário',
+       F1.nome AS 'Nome do Funcionário',
+       F1.idfuncao AS 'Código da Função',
+       F2.nome AS 'Nome da Função',
+       F2.gratific AS 'Gratificação'
+FROM Funcionario F1
+INNER JOIN Funcao F2 ON F1.idfuncao = F2.idfuncao;
+
+#20. Obter o código e o nome dos clientes que moram na cidade de nome "London".
+SELECT Cli.idcliente AS 'Código do Cliente',
+	   Cli.nome AS 'Nome do Cliente'
+FROM Cliente Cli
+INNER JOIN Cidade Cid ON Cli.idcidade = Cid.idcidade
+WHERE Cid.nome = 'London';
+
+#21. Obter a média salarial dos funcionários cujo nome da função inicie por “Diretor”.
+SELECT AVG(F1.salario) AS 'Média Salarial'
+FROM Funcionario F1
+INNER JOIN Funcao F2 ON F1.idfuncao = F2.idfuncao
+WHERE F2.nome LIKE 'Diretor%';
+
+#22. Obter o código do pedido, o nome do cliente e o nome do funcionário de todos os pedidos.
+SELECT 
