@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class ContaCorrente {
 
     // Atributos: numero, saldo e nomeTitular
-    public int numero;
-    public Double saldo;
-    public String nomeTitular;
+    private int numero;
+    private Double saldo;
+    private String nomeTitular;
 
     // Construtores para inicializar os valores dos atributos dos objetos instanciados
     public ContaCorrente(int numero, Double saldo, String nomeTitular) {
